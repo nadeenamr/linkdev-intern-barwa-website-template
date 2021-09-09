@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bawra</title>
+<script type="text/javascript" src="scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="scripts/slick.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$(window).on('beforeunload', function() {
+		    $(window).scrollTop(0);
+		});
+		
+		var sections = $('.sec');
+		$(window).scroll(function (){
+			
+		    var windowscroll = $(this).scrollTop();
+		    sections.each(function(){
+				var x = $(this).attr('id');
+		        if($(this).offset().top - 131 < windowscroll){ 
+					//reset  
+					$(".menu-item").removeClass('active');
+					$(".menu-item").addClass('inactive');
+					//set
+		            $(".section-container").find(".dynamic-menu").find("."+x).addClass("active").removeClass('inactive');
+		        }
+		    });
+		});
+  		
+		$(".menu-item a").click(function(e){ 
+			//e.preventDefault(); this
+			var x = $(this).attr('id');
+			$('html, body').animate({
+		      scrollTop: $('.section-'+x).offset().top -127
+		    }, 500);
+			return false; //or this 
+		});  
+		
+		$(".si-arrow").click(function(){ 
+			$(this).parent().find(".side-title").toggle();
+		});	
+		
+		$(".slideshow").slick({
+			dots: true,
+			infinite: true,
+		    arrows: false,
+			autoplay: true,
+			autoplaySpeed: 1400
+		}); 
+		
+		$(".s3-slideshow").slick({
+			dots: true,
+			infinite: true,
+		    arrows: false,
+			autoplay: true,
+			autoplaySpeed: 1400
+		}); 
+		
+		$(".bkmrk-tag a").click(function(){ 
+			$(".bkmrk-tag .cal-title").removeClass("full");
+			$(".bkmrk-tag .btw").removeClass("full");
+			$(this).find(".cal-title").addClass("full");
+			$(this).find(".btw").addClass("full");
+		});	
+	});
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/slick.css">
+<link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+</head>
+
+<body class="body">
+	<header class="head">
+		<div class="container">
+			<div class="barwa-logo-header pull-left"><img src="images/barwaLogo.png" href="Barwa Logo"></div>
+			<div class="main-header-right pull-right">
+				<div class="header-top">
+					<div class="language">
+						<div class="globe"><a href="#"><span class="icon-languageGlobe"></span></a></div>	
+						<div class="select">
+							<span class="l-span">Current Languge:</span>
+							<a href="#" class="l-span lang">English  <i class="arrow down lang-arrow"></i></a>
+							<ul class="lang-list">
+								<li><a href="#">English</a></li>
+								<li><a href="#">Arabic</a></li>
+							</ul>	
+						</div>
+					</div>
+					<div class="nav-bar">
+						<ul>
+							<li><a href="#">Register</a></li>
+							<li><a href="#">Career</a></li>
+							<li><a href="#">Site Map</a></li>
+							<li><a href="#">FAQS</a></li>
+							<li><a href="#">Contact Us</a></li>
+						<ul>	
+					</div>
+					<div class="user-nav">
+						<span class="w-span welc">Welcome</span>
+						<a href="#" class="w-span username"><i class="arrow down username-arrow"></i> Nadeen Amr</a>
+					</div>	
+				</div>
+				<div class="header-bottom pull-right">
+					<div class="multi-menu">
+						<ul>
+							<li class="home"><a href="#"><span class="icon-homeIco"></span></a></li> 
+							<li class="ab"><a href="#">About <br>Barwa <i class="arrow down ab-arrow"></i></a>
+								<ul class="ab-menu">
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Barwa Management</a></li>
+									<li><a href="#">Initiative And Awards</a></li>
+									<li><a href="#">Subsidairies</a></li>
+								</ul>
+							</li>
+							<li class="pi"><a href="#">Projects & <br>Investment <i class="arrow down pi-arrow"></i></a></li>
+							<li class="ir"><a href="#">Investor <br>Relations <i class="arrow down ir-arrow"></i></a></li>
+							<li class="pr"><a href="#">Press <br>Room</a> <i class="arrow down pr-arrow"></i></li>
+						<ul>
+					</div>
+					<div class="search-bar">
+						<input type="text" placeholder="Search Keyword.." name="search" class="search-box">
+						<button class="btn search-button" type="submit"><span class="icon-searchtoolIcon"></span></button>
+					</div>	
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</header>
+	<div class="section-container">
+		<div class="dynamic-menu pull-left">
+			<ul>
+				<li class="menu-item sec1 active" id="1">
+					<a href="#" id="1">
+						<div class = "icon pull-left">
+							<span class="icon-megaphoneIcon"></span>
+						</div>
+						<div class = "title pull-right">
+							<span>Barwa <br>Announcment</span>						
+						</div>
+					</a>
+				</li>
+				<li class="menu-item sec2 inactive" id="2">
+					<a href="#" id="2">
+						<div class = "icon pull-left">
+							<span class="icon-buildingsIcon"></span>
+						</div>
+						<div class = "title pull-right">
+							<span>Real Estate <br>Investment</span>						
+						</div>
+					</a>
+				</li>
+				<li class="menu-item sec3 inactive" id="3">
+					<a href="#" id="3">
+						<div class = "icon pull-left">
+							<span class="icon-newspaperIcon"></span>
+						</div>
+						<div class = "title pull-right">
+							<span>News & <br>Events</span>						
+						</div>
+					</a>
+				</li>
+				
+				<li class="menu-item sec4 inactive" id="4">
+					<a href="#"" id="4">
+						<div class = "icon pull-left">
+							<span class="icon-microphoneIcon"></span>
+						</div>
+						<div class = "title pull-right">
+							<span>Barwa <br>Subsidaries</span>					
+						</div>
+					</a>
+				</li>
+				
+			</ul>	
+		</div>
+	</div>
+	<div class="swrapper">
+	<section class="sec section-1" id="sec1">
+		<div class="container">
+			<div class="s1-contents pull-right">
+				<div class="slideshow" id="ss-wrapper">
+					<div class="slide1"><div class="triangle-right"><a href="#"></a></div><h2>Barwa Announces the Completion of Sale of Two Land Plots</h2></div>
+					<div class="slide2"><div class="triangle-right"><a href="#"></a></div><h2>Barwa Announces the Completion of Sale of Two Land Plots</h2></div>
+					<div class="slide3"><div class="triangle-right"><a href="#"></a></div><h2>Barwa Announces the Completion of Sale of Two Land Plots</h2></div>					
+				</div>
+				<div class="bookmarks">
+					<ul class="temp">
+						<li class="bkmrk-item">
+							<div class = "image pull-left">
+								<a href="#"><img alt="img1" src="images/mini-img1.jpg"></a>
+							</div>
+							<div class = "bkmrktitle pull-right">
+								<a href="#">Vision <br>And Mission</a>						
+							</div>
+						</li>
+						<li class="bkmrk-item">
+							<div class = "image pull-left">
+								<a href="#"><img alt="img2" src="images/mini-img2.jpg"></a>
+							</div>
+							<div class = "bkmrktitle pull-right">
+								<a href="#">Corporate <br>Governance</a>						
+							</div>
+						</li>
+						<li class="bkmrk-item">
+							<div class = "image pull-left">
+								<a href="#"><img alt="img3" src="images/mini-img3.jpg"></a>
+							</div>
+							<div class = "bkmrktitle pull-right">
+								<a href="#">Barwa <br>Management</a>						
+							</div>
+						</li>
+					</ul>	
+				</div>
+				<div class="side">
+					<ul class="temp">
+						<li class="item">
+							<div class = "si-arrow pull-left">
+								<a href="#"><i class="arrow down s-arrow"></i></a>
+							</div>
+							<div class = "side-title pull-right">
+								<a href="#">Current <br>Value <br> <p>30.25</p></a>						
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+						<li class="item">
+							<div class = "si-arrow pull-left">
+								<a href="#"><i class="arrow down s-arrow"></i></a>
+							</div>
+							<div class = "side-title pull-right">
+								<a href="#"><img alt="waseef-logo" src="images/waseef.png" style="width: 63px; opacity: 1;"/> </a>						
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+					</ul>	
+				</div>	
+			</div>	
+			<div style="clear: both;"></div>
+		</div>
+	</section>
+	
+	<section class="sec section-2" id="sec2">
+		<div class="container">
+			<div class="s2-contents pull-right">
+				<div class="intro">
+					<h1>Real Estate Investment</h1>
+					<p>In our march towards fulfilling this pledge we have secured phenomenal growth on <br>behalf of our investors, stakeholders and every community in which we operate.</p>
+				</div>
+				<div class="temp2">	
+				<div class="projects">
+					<span onClick="return false;" class="button"><i class="square"></i> View All Projects</span>
+				</div>
+				<div class="real-estate-panel">
+					<div class="mini-list pull-left">
+						<ul class="blist">
+							<li class="basic">
+								<div class="bs pull-left"><i class="bsquare"></i></div>
+								<div class="bt"><a href="#">Qatar <br>Real Estate</a></div>
+							</li>
+							<li class="basic">
+								<div class="bs pull-left"><i class="bsquare"></i></div>
+								<div class="bt"><a href="#">International <br>Real Estate</a></div>
+							</li>		
+						</ul>	
+					</div>
+					<div class="map"><a href="#"><img alt="img2" src="images/map.jpg"></a></div>	
+					<div style="clear: both;"></div>
+				</div>
+				</div>	
+			</div>
+			<div style="clear: both;"></div>
+		</div>	
+	</section>
+	
+	<section class="sec section-3" id="sec3">
+		<div class="container">
+			<div class="s3-contents pull-right">
+				<div class="news pull-left">
+					<div class="top">
+						<h1 class="pull-left">Latest News</h1>
+						<span onClick="return false;" class="link pull-right">View All</span>
+					</div>
+					<div class="s3-slideshow" id="ss-wrapper">
+						<div class="slide1"><div class="triangle-right"><a href="#"></a></div><h2>Barwa Announces the Completion of Sale of Two Land Plots</h2></div>
+						<div class="slide2"><div class="triangle-right"><a href="#"></a></div><h2>Barwa Announces the Completion of Sale of Two Land Plots</h2></div>
+						<div class="slide3"><div class="triangle-right"><a href="#"></a></div><h2>Barwa Announces the Completion of Sale of Two Land Plots</h2></div>					
+					</div>	
+				</div>
+				<div class="events pull-right">
+					<div class="e-top">
+						<h1 class="pull-left">Events</h1>
+						<span onClick="return false;" class="link pull-right">View All</span>
+					</div>
+					<ul class="temp">
+						<li class="bkmrk-tag">
+							<a onClick="return false;" href="#">
+								<div class = "calender pull-left">
+									<div class="day"><p>15</p></div>	
+									<div class="month-year"><p>Jan, 2015</p></div>	
+								</div>
+								<div class = "cal-title pull-right">
+									<div class="btw"><p>New Deal with the <br>Qatari Government<br><br>Maadi<br><br>4:00 PM</p></div>						
+								</div>
+								<div style="clear: both;"></div>
+							</a>
+						</li>
+						<li class="bkmrk-tag">
+							<a onClick="return false;" href="#">
+								<div class = "calender pull-left">
+									<div class="day"><p>25</p></div>	
+									<div class="month-year"><p>Jan, 2015</p></div>	
+								</div>
+								<div class = "cal-title pull-right">
+									<div class="btw"><p>Case Study on the <br>GEM Project<br><br>Smart Village<br><br>10:00 AM</p></div>						
+								</div>
+								<div style="clear: both;"></div>
+							</a>
+						</li>
+						<li class="bkmrk-tag">
+							<a onClick="return false;" href="#">
+								<div class = "calender pull-left">
+									<div class="day"><p>2</p></div>	
+									<div class="month-year"><p>Feb, 2015</p></div>	
+								</div>
+								<div class = "cal-title pull-right">
+									<div class="btw"><p>Follow Up with the <br>Qatari Government<br><br>Nasr City<br><br>5:00 PM</p></div>							
+								</div>
+								<div style="clear: both;"></div>
+							</a>
+						</li>
+					</ul>	
+				</div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+	</section>
+	
+	</div>
+	
+</body>
+</html>
